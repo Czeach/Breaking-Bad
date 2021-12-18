@@ -1,27 +1,69 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id(Plugins.androidApplication)
+    id(Plugins.hilt)
+    kotlin(KotlinPlugins.android)
+    kotlin(KotlinPlugins.kapt)
+    kotlin(KotlinPlugins.serialization) version Kotlin.version
 }
 
 android {
-    compileSdk = 31
+    compileSdk = Application.compileSdk
     defaultConfig {
-        applicationId = "com.czech.breakingbad.android"
-        minSdk = 21
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Application.appId
+        minSdk = Application.minSdk
+        targetSdk = Application.targetSdk
+        versionCode = Application.versionCode
+        versionName = Application.versionName
     }
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
         }
+        buildFeatures {
+            compose = true
+        }
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+        composeOptions {
+            kotlinCompilerExtensionVersion = Compose.composeVersion
+        }
+    }
+    packagingOptions {
+        resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
 }
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+
+    // Google material
+    implementation(Google.material)
+
+    // App compact
+    implementation(AndroidX.appCompat)
+
+    // Compose
+    implementation(Compose.runtime)
+    implementation(Compose.runtimeLiveData)
+    implementation(Compose.ui)
+    implementation(Compose.material)
+    implementation(Compose.uiTooling)
+    implementation(Compose.foundation)
+    implementation(Compose.compiler)
+    implementation(Compose.constraintLayout)
+    implementation(Compose.activity)
+    implementation(Compose.navigation)
+
+    // Hilt
+    implementation(Hilt.hiltAndroid)
+    implementation(Hilt.hiltNavigation)
+    implementation(Hilt.hiltCompiler)
+
+    // Ktor
+    implementation(Ktor.android)
 }
