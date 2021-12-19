@@ -1,7 +1,7 @@
 package com.czech.breakingbad.android.di
 
 import android.content.Context
-import com.czech.breakingbad.android.MyApplication
+import com.czech.breakingbad.android.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApplication(@ApplicationContext myApp: Context): MyApplication {
-        return myApp as MyApplication
+    fun provideApplication(@ApplicationContext app: Context): BaseApplication {
+        return app as BaseApplication
     }
 }

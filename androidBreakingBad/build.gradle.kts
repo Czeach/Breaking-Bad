@@ -62,7 +62,7 @@ dependencies {
     // Hilt
     implementation(Hilt.hiltAndroid)
     implementation(Hilt.hiltNavigation)
-    implementation(Hilt.hiltCompiler)
+    kapt(Hilt.hiltCompiler)
 
     // Ktor
     implementation(Ktor.android)
