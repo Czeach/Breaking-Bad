@@ -1,7 +1,10 @@
+import Plugins.sqlDelight
+
 plugins {
     kotlin(KotlinPlugins.multiplatform)
     kotlin(KotlinPlugins.serialization) version Kotlin.version
     id(Plugins.androidLibrary)
+    id(Plugins.sqlDelight)
 }
 
 version = "1.0"
@@ -60,8 +63,16 @@ kotlin {
             dependencies {
                 dependencies {
                     implementation(Ktor.ios)
+                    implementation(SQLDelight.nativeDriver)
                 }
             }
         }
+    }
+}
+
+sqldelight {
+    database("BreakingBadDatabase") {
+        packageName ="com.czech.breakingbad.datasource.cache"
+        sourceFolders = listOf("sqldelight")
     }
 }
