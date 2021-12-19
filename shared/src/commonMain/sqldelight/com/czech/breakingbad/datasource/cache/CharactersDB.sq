@@ -1,0 +1,42 @@
+import kotlin.collections.List;
+
+CREATE TABLE characters_Entity(
+    char_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    birthday TEXT NOT NULL,
+    occupation TEXT AS List<String> NOT NULL,
+    img TEXT NOT NULL,
+    status TEXT NOT NULL,
+    nickname TEXT NOT NULL,
+    appearance INTEGER AS List<Int> NOT NULL,
+    portrayed TEXT NOT NULL,
+    category TEXT NOT NULL,
+    better_call_saul_appearance INTEGER  AS List<Int> NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM characters_Entity;
+
+insertCharacter:
+INSERT OR REPLACE
+INTO characters_Entity (
+    char_id,
+    name,
+    birthday,
+    occupation,
+    img,
+    status,
+    nickname,
+    appearance,
+    portrayed,
+    category,
+    better_call_saul_appearance
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+getAllCharacters:
+SELECT * FROM characters_Entity;
+
+getcharacterById:
+SELECT * FROM characters_Entity
+WHERE char_id = :char_id;
