@@ -1,4 +1,4 @@
-package com.czech.breakingbad.dataSource.network
+package com.czech.breakingbad.datasource.network
 
 import io.ktor.client.*
 

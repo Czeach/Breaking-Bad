@@ -1,4 +1,4 @@
-package com.czech.breakingbad.dataSource.network.models
+package com.czech.breakingbad.datasource.network.models
 
 
 import kotlinx.serialization.SerialName

@@ -1,6 +1,6 @@
-package com.czech.breakingbad.dataSource.network
+package com.czech.breakingbad.datasource.network
 
-import com.czech.breakingbad.dataSource.network.models.Characters
+import com.czech.breakingbad.datasource.network.models.Characters
 
 interface ApiService {
 

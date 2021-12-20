@@ -1,10 +1,9 @@
-import Plugins.sqlDelight
 
 plugins {
-    kotlin(KotlinPlugins.multiplatform)
-    kotlin(KotlinPlugins.serialization) version Kotlin.version
     id(Plugins.androidLibrary)
     id(Plugins.sqlDelight)
+    kotlin(KotlinPlugins.multiplatform)
+    kotlin(KotlinPlugins.serialization) version Kotlin.version
 }
 
 version = "1.0"
@@ -61,10 +60,8 @@ kotlin {
         }
         val iosMain by getting {
             dependencies {
-                dependencies {
-                    implementation(Ktor.ios)
-                    implementation(SQLDelight.nativeDriver)
-                }
+                implementation(Ktor.ios)
+                implementation(SQLDelight.nativeDriver)
             }
         }
     }

@@ -8,10 +8,10 @@ CREATE TABLE characters_Entity(
     img TEXT NOT NULL,
     status TEXT NOT NULL,
     nickname TEXT NOT NULL,
-    appearance INTEGER AS List<Int> NOT NULL,
+    appearance TEXT AS List<Int> NOT NULL,
     portrayed TEXT NOT NULL,
     category TEXT NOT NULL,
-    better_call_saul_appearance INTEGER  AS List<Int> NOT NULL
+    better_call_saul_appearance TEXT  AS List<Int> NOT NULL
 );
 
 selectAll:
