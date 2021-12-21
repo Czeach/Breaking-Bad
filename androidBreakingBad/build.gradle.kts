@@ -46,6 +46,7 @@ dependencies {
 
     // App compact
     implementation(AndroidX.appCompat)
+    implementation(AndroidX.core)
 
     // Compose
     implementation(Compose.runtime)
@@ -61,8 +62,10 @@ dependencies {
 
     // Hilt
     implementation(Hilt.hiltAndroid)
-    implementation(Hilt.hiltNavigation)
+    kapt(Hilt.hiltAndroidCompiler)
+    implementation(Hilt.hiltViewModel)
     kapt(Hilt.hiltCompiler)
+    implementation(Hilt.hiltNavigation)
 
     // Ktor
     implementation(Ktor.android)
