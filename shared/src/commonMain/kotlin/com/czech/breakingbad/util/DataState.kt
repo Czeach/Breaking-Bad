@@ -1,14 +1,14 @@
 package com.czech.breakingbad.util
 
 data class DataState<T>(
-    val message: String? = null,
+    val message: MessageInfo.Builder? = null,
     val data: T? = null,
     val isLoading: Boolean = false
 ) {
     companion object {
 
         fun <T> error(
-            message: String
+            message: MessageInfo.Builder
         ): DataState<T> {
             return DataState(
                 message = message
@@ -24,7 +24,7 @@ data class DataState<T>(
         }
 
         fun <T> data(
-            message: String? = null,
+            message: MessageInfo.Builder? = null,
             data: T? = null
         ): DataState<T> {
             return DataState(

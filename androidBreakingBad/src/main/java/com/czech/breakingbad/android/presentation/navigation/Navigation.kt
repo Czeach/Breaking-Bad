@@ -19,7 +19,7 @@ fun Navigation() {
     val navController= rememberNavController()
     NavHost(navController =navController, startDestination = Screens.CharactersList.route) {
 
-        composable(route = Screens.CharactersList.route) { backStackEntry ->
+        composable(route = Screens.CharactersList.route) {
 
             val characterListEntry = remember {
                 navController.getBackStackEntry(Screens.CharactersList.route)
@@ -37,16 +37,16 @@ fun Navigation() {
             arguments = listOf(navArgument("char_id") {
                 type = NavType.IntType
             })
-        ) { navBackStackEntry ->
+        ) {
 
             val characterDetailEntry = remember {
                 navController.getBackStackEntry(Screens.CharacterDetail.route + "/{char_id}")
             }
-            val viewModel = hiltViewModel<CharacterDetailViewModel>(characterDetailEntry)
+//            val viewModel = hiltViewModel<CharacterDetailViewModel>(characterDetailEntry)
 
-            CharacterDetailScreen(
-                character = viewModel.character.value
-            )
+//            CharacterDetailScreen(
+//                character = viewModel.character.value
+//            )
         }
     }
 }

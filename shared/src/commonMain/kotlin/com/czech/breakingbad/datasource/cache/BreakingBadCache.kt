@@ -10,6 +10,5 @@ interface BreakingBadCache {
 
     fun getAllCharacters(): List<Characters>
 
-    @Throws(NullPointerException::class)
     fun getCharacterById(char_id: Int): List<Characters>?
 }

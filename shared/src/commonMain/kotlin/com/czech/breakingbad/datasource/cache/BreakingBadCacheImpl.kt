@@ -4,7 +4,7 @@ import com.czech.breakingbad.datasource.network.models.Characters
 import com.czech.breakingbad.util.SQLDelightConverters.toCharactersList
 
 class BreakingBadCacheImpl(
-    private val breakingBadDatabase: BreakingBadDatabase
+    breakingBadDatabase: BreakingBadDatabase
 ): BreakingBadCache {
 
     private val queries:BreakingBadDBQueries = breakingBadDatabase.breakingBadDBQueries
