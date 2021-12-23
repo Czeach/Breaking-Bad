@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.czech.breakingbad.android.presentation.components.CircularProgressBar
+import com.czech.breakingbad.android.presentation.components.DialogQueue
 import com.czech.breakingbad.util.MessageInfo
 import com.czech.breakingbad.util.Queue
 
@@ -15,10 +17,10 @@ val LightThemeColors = lightColors(
     onPrimary = Grey700,
     secondary = Grey100,
     secondaryVariant = Grey200,
-    onSecondary = Grey300,
+    onSecondary = Grey200,
     error = Red800,
     onError = Red600,
-    background = Grey600,
+    background = Grey300,
     onBackground = Grey400,
     surface = Teal200
 )
@@ -38,9 +40,15 @@ fun AppTheme(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = Grey600)
         ) {
-
+            DialogQueue(
+                dialogQueue = dialogQueue,
+                onRemoveLastMessageFromQueue = onRemoveLastMessageFromQueue
+            )
+            content()
+            CircularProgressBar(
+                isDisplayed = displayProgressBar,
+                verticalBias = 0.3f)
         }
     }
 }

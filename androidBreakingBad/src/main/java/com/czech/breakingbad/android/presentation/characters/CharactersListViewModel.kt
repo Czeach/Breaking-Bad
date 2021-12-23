@@ -35,7 +35,7 @@ constructor(
         triggerEvent(CharactersListEvent.LoadCharacters)
     }
 
-    private fun triggerEvent(event: CharactersListEvent) {
+    fun triggerEvent(event: CharactersListEvent) {
         when (event) {
             is CharactersListEvent.LoadCharacters -> {
                 loadCharacters()

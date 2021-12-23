@@ -27,6 +27,8 @@ fun Navigation() {
             val viewModel = hiltViewModel<CharactersListViewModel>(characterListEntry)
 
             CharacterListScreen(
+                state = viewModel.state.value,
+                onTriggerEvents = viewModel::triggerEvent,
                 onSelectCharacter = { char_id ->
                     navController.navigate(Screens.CharacterDetail.route + "/$char_id")
                 }

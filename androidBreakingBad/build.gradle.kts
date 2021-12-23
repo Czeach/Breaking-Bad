@@ -69,4 +69,7 @@ dependencies {
 
     // Ktor
     implementation(Ktor.android)
+
+    // Coil
+    implementation(Accompanist.coil)
 }

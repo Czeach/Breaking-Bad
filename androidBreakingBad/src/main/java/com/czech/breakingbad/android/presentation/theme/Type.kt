@@ -1,5 +1,6 @@
 package com.czech.breakingbad.android.presentation.theme
 
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -27,12 +28,18 @@ val RobotoTypography = Typography(
     h2 = TextStyle(
         fontFamily = Roboto,
         fontWeight = FontWeight.W500,
-        fontSize = 24.sp
+        fontSize = 24.sp,
+    ),
+    h3 = TextStyle(
+        fontFamily = Roboto,
+        fontWeight = FontWeight.W500,
+        fontSize = 20.sp
     ),
     body1 = TextStyle(
         fontFamily = Roboto,
-        fontWeight = FontWeight.W400,
-        fontSize = 16.sp
+        fontWeight = FontWeight.W500,
+        fontSize = 18.sp,
+        color = Grey800
     ),
     button = TextStyle(
         fontFamily = Roboto,
@@ -41,8 +48,8 @@ val RobotoTypography = Typography(
     ),
     caption = TextStyle(
         fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
-        fontSize = 16.sp
+        fontWeight = FontWeight.W700,
+        fontSize = 18.sp
     )
 
 )
