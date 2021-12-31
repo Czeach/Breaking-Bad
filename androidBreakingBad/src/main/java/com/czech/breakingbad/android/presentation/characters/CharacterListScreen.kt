@@ -26,9 +26,13 @@ fun CharacterListScreen(
         dialogQueue = state.queue,
         onRemoveLastMessageFromQueue = { onTriggerEvents(CharactersListEvent.OnRemoveLastMessageFromQueue) }
     ) {
+        Spacer(
+            modifier = Modifier.height(24.dp)
+        )
         CharactersList(
             loading = state.isLoading,
             characters = state.characters,
-            onClickCharacterListItem = onSelectCharacter)
+            onClickCharacterListItem = onSelectCharacter
+        )
     }
 }

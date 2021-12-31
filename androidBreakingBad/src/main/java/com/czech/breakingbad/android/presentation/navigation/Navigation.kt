@@ -44,11 +44,12 @@ fun Navigation() {
             val characterDetailEntry = remember {
                 navController.getBackStackEntry(Screens.CharacterDetail.route + "/{char_id}")
             }
-//            val viewModel = hiltViewModel<CharacterDetailViewModel>(characterDetailEntry)
+            val viewModel = hiltViewModel<CharacterDetailViewModel>(characterDetailEntry)
 
-//            CharacterDetailScreen(
-//                character = viewModel.character.value
-//            )
+            CharacterDetailScreen(
+                state = viewModel.state.value,
+                triggerEvent = viewModel::triggerEvent
+            )
         }
     }
 }

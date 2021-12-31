@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.czech.breakingbad.datasource.network.models.Characters
 import com.czech.breakingbad.interactors.characters.GetCharacterDetail
 import com.czech.breakingbad.presentation.characters.events.CharacterDetailEvent
 import com.czech.breakingbad.presentation.characters.states.CharacterDetailState
@@ -94,19 +93,4 @@ constructor(
 
         }
     }
-
-//    fun getCharacterDetail(char_id: Int) {
-//        getCharacterDetail.execute(char_id).onEach { state ->
-//            println("CharacterDetailVM: loading: ${state.isLoading}")
-//
-//            state.data?.let { character ->
-//                println("CharacterDetailVM: character: $character")
-//                this.character.value = character
-//            }
-//
-//            state.message?.let { message ->
-//                println("CharacterDetailVM: error: $message")
-//            }
-//        }.launchIn(viewModelScope)
-//    }
 }

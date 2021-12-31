@@ -9,9 +9,9 @@ object Constants {
     const val UNKNOWN_ERROR = "Unknown Error"
     const val UNKNOWN_EVENT = "Unknown Event"
 
-    const val CHARACTER_IMAGE_HEIGHT_LARGE = 260
+    const val CHARACTER_IMAGE_HEIGHT_LARGE = 200
     const val CHARACTER_IMAGE_HEIGHT_SMALL = 130
 
-    const val CHARACTER_IMAGE_WIDTH_LARGE = 100
+    const val CHARACTER_IMAGE_WIDTH_LARGE = 130
     const val CHARACTER_IMAGE_WIDTH_SMALL = 80
 }

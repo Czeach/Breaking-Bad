@@ -36,10 +36,8 @@ val RobotoTypography = Typography(
         fontSize = 20.sp
     ),
     body1 = TextStyle(
-        fontFamily = Roboto,
-        fontWeight = FontWeight.W500,
+        fontFamily = FontFamily(Font(R.font.roboto_regular, FontWeight.W700)),
         fontSize = 18.sp,
-        color = Grey800
     ),
     button = TextStyle(
         fontFamily = Roboto,
@@ -50,6 +48,11 @@ val RobotoTypography = Typography(
         fontFamily = Roboto,
         fontWeight = FontWeight.W700,
         fontSize = 18.sp
+    ),
+    body2 = TextStyle(
+        fontFamily = Roboto,
+        fontWeight = FontWeight.W700,
+        fontSize = 16.sp
     )
 
 )
