@@ -78,7 +78,7 @@ fun CharacterDetail(
         }
         constrain(portrayed) {
             top.linkTo(imgCard.bottom, margin = 24.dp)
-            start.linkTo(imgCard.start, margin = 8.dp)
+            start.linkTo(imgCard.start, margin = 12.dp)
         }
         constrain(status) {
             top.linkTo(portrayed.bottom, margin = 4.dp)

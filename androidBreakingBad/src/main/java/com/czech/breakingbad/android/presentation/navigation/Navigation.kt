@@ -2,6 +2,7 @@ package com.czech.breakingbad.android.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -13,6 +14,7 @@ import com.czech.breakingbad.android.presentation.characters.CharacterListScreen
 import com.czech.breakingbad.android.presentation.characters.CharactersListViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 
+@ExperimentalComposeUiApi
 @Composable
 fun Navigation() {
 

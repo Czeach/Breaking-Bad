@@ -35,6 +35,12 @@ class BreakingBadCacheImpl(
         return queries.getAllCharacters().executeAsList().toCharactersList()
     }
 
+    override fun searchCharacters(query: String): List<Characters> {
+        return queries.searchCharacter(
+            query = query
+        ).executeAsList().toCharactersList()
+    }
+
     override fun getCharacterById(char_id: Int): List<Characters>? {
         return try {
             queries.getcharacterById(

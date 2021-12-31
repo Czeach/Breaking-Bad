@@ -22,7 +22,7 @@ val LightThemeColors = lightColors(
     onError = Red600,
     background = Grey300,
     onBackground = Grey400,
-    surface = Teal200
+    surface = Grey400
 )
 
 @Composable

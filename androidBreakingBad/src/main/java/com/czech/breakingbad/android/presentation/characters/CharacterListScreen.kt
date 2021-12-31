@@ -8,13 +8,16 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.czech.breakingbad.android.presentation.components.CharactersList
+import com.czech.breakingbad.android.presentation.components.SearchBar
 import com.czech.breakingbad.android.presentation.theme.AppTheme
 import com.czech.breakingbad.presentation.characters.events.CharactersListEvent
 import com.czech.breakingbad.presentation.characters.states.CharactersListState
 
+@ExperimentalComposeUiApi
 @Composable
 fun CharacterListScreen(
     state: CharactersListState,
@@ -26,13 +29,25 @@ fun CharacterListScreen(
         dialogQueue = state.queue,
         onRemoveLastMessageFromQueue = { onTriggerEvents(CharactersListEvent.OnRemoveLastMessageFromQueue) }
     ) {
-        Spacer(
-            modifier = Modifier.height(24.dp)
-        )
-        CharactersList(
-            loading = state.isLoading,
-            characters = state.characters,
-            onClickCharacterListItem = onSelectCharacter
-        )
+
+        Scaffold(
+            topBar = {
+                SearchBar(
+                    query = state.query,
+                    onQueryChanged = {
+                        onTriggerEvents(CharactersListEvent.OnUpdateQuery(it))
+                    },
+                    onSearchExecuted = {
+                        onTriggerEvents(CharactersListEvent.SearchCharacter)
+                    }
+                )
+            },
+        ) {
+            CharactersList(
+                loading = state.isLoading,
+                characters = state.characters,
+                onClickCharacterListItem = onSelectCharacter
+            )
+        }
     }
 }

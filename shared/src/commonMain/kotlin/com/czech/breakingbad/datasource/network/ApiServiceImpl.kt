@@ -14,6 +14,12 @@ class ApiServiceImpl(
         }
     }
 
+    override suspend fun searchCharacter(query: String): List<Characters> {
+        return httpClient.get {
+            url("$baseUrl/characters?name=$query")
+        }
+    }
+
     override suspend fun characterDetail(id: Int): List<Characters> {
         return httpClient.get {
             url("$baseUrl/characters/$id")

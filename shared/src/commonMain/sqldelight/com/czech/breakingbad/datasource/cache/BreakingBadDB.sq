@@ -37,6 +37,10 @@ INTO characters_Entity (
 getAllCharacters:
 SELECT * FROM characters_Entity;
 
+searchCharacter:
+SELECT * FROM characters_Entity
+WHERE name LIKE ('%' || :query || '%');
+
 getcharacterById:
 SELECT * FROM characters_Entity
 WHERE char_id = :char_id;

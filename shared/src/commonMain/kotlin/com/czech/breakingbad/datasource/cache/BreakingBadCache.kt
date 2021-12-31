@@ -10,5 +10,7 @@ interface BreakingBadCache {
 
     fun getAllCharacters(): List<Characters>
 
+    fun searchCharacters(query: String): List<Characters>
+
     fun getCharacterById(char_id: Int): List<Characters>?
 }

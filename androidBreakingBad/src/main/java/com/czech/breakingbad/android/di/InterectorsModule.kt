@@ -4,6 +4,7 @@ import com.czech.breakingbad.datasource.cache.BreakingBadCache
 import com.czech.breakingbad.datasource.network.ApiService
 import com.czech.breakingbad.interactors.characters.GetCharacterDetail
 import com.czech.breakingbad.interactors.characters.GetCharactersList
+import com.czech.breakingbad.interactors.characters.SearchCharacter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +22,17 @@ class InterectorsModule {
         breakingBadCache: BreakingBadCache
     ): GetCharactersList =
         GetCharactersList(
+            apiService = apiService,
+            breakingBadCache = breakingBadCache
+        )
+
+    @Singleton
+    @Provides
+    fun provideSearchCharacter(
+        apiService: ApiService,
+        breakingBadCache: BreakingBadCache
+    ): SearchCharacter =
+        SearchCharacter(
             apiService = apiService,
             breakingBadCache = breakingBadCache
         )

@@ -34,7 +34,7 @@ object SQLDelightConverters {
 
     }
 
-    fun Characters_Entity.toCharacters(): Characters {
+    private fun Characters_Entity.toCharacters(): Characters {
         return Characters(
             charId = char_id.toInt(),
             name = name,

@@ -6,5 +6,7 @@ interface ApiService {
 
     suspend fun charactersList(): List<Characters>
 
+    suspend fun searchCharacter(query: String): List<Characters>
+
     suspend fun characterDetail(id: Int): List<Characters>
 }

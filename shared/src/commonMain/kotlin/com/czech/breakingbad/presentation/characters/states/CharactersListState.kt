@@ -7,5 +7,6 @@ import com.czech.breakingbad.util.Queue
 data class CharactersListState(
     val isLoading: Boolean = false,
     val characters: List<Characters> = listOf(),
+    val query: String = "",
     val queue: Queue<MessageInfo> = Queue(mutableListOf())
 )

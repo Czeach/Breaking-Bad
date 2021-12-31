@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.czech.breakingbad.datasource.network.models.Characters
 import com.czech.breakingbad.interactors.characters.GetCharactersList
+import com.czech.breakingbad.interactors.characters.SearchCharacter
 import com.czech.breakingbad.presentation.characters.events.CharactersListEvent
 import com.czech.breakingbad.presentation.characters.states.CharactersListState
 import com.czech.breakingbad.util.Constants
@@ -26,7 +27,8 @@ class CharactersListViewModel
 @Inject
 constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val getCharactersList: GetCharactersList
+    private val getCharactersList: GetCharactersList,
+    private val searchCharacter: SearchCharacter
 ): ViewModel() {
 
     val state: MutableState<CharactersListState> = mutableStateOf(CharactersListState())
@@ -40,6 +42,12 @@ constructor(
             is CharactersListEvent.LoadCharacters -> {
                 loadCharacters()
             }
+            is CharactersListEvent.SearchCharacter -> {
+                searchCharacter()
+            }
+            is CharactersListEvent.OnUpdateQuery -> {
+                state.value.copy(query = event.query, characters = listOf())
+            }
             is CharactersListEvent.OnRemoveLastMessageFromQueue -> {
                 removeLastMessage()
             }
@@ -52,17 +60,24 @@ constructor(
                 appendToMessageQueue(messageInfo = messageInfoBuilder)
             }
         }
-//        getCharactersList.execute().onEach { state ->
-//            println("CharacterListVM: Loading: ${state.isLoading}")
-//
-//            state.data.let { characters ->
-//                println("CharacterListVM: characters: $characters")
-//            }
-//
-//            state.message.let { message ->
-//                println("CharacterListVM: error: $message")
-//            }
-//        }.launchIn(viewModelScope)
+    }
+
+    private fun searchCharacter() {
+        state.value = state.value.copy(characters = listOf())
+
+        searchCharacter.execute(
+            query = state.value.query
+        ).onEach { dataState ->
+            state.value = state.value.copy(isLoading = dataState.isLoading)
+
+            dataState.data?.let { character ->
+                appendCharacters(character)
+            }
+
+            dataState.message?.let { message ->
+                appendToMessageQueue(message)
+            }
+        }.launchIn(viewModelScope)
     }
 
     private fun loadCharacters() {
