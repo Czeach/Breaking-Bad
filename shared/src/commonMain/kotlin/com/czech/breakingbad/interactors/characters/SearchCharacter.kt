@@ -23,10 +23,6 @@ class SearchCharacter(
 
             kotlinx.coroutines.delay(300)
 
-            if (query == "error") {
-                throw Exception("Testing error... Search FAILED!")
-            }
-
             breakingBadCache.insertCharacter(character)
 
             val cacheResult = if (query.isBlank() || query.isEmpty()) {
