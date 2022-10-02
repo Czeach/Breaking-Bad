@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.hilt)
+    id(Plugins.sqlDelight)
     kotlin(KotlinPlugins.android)
     kotlin(KotlinPlugins.kapt)
     kotlin(KotlinPlugins.serialization) version Kotlin.version
@@ -14,6 +15,8 @@ android {
         targetSdk = Application.targetSdk
         versionCode = Application.versionCode
         versionName = Application.versionName
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         getByName("release") {
@@ -72,17 +75,23 @@ dependencies {
     implementation(Coroutines.coroutinesAndroid)
     implementation(Coroutines.coroutinesAdapter)
 
-    //Testing
-    testImplementation(Testing.mockitoCore)
-    testImplementation(Testing.mockitoInline)
-    testImplementation(Testing.coreTesting)
-    testImplementation(Testing.coroutinesTest)
-    testImplementation(Testing.jUnit_)
-    androidTestImplementation(Testing.jUnitExt)
-
     // Ktor
     implementation(Ktor.android)
 
     // Coil
     implementation(Accompanist.coil)
+
+    implementation(SQLDelight.runtime)
+    implementation(SQLDelight.androidDriver)
+    implementation(SQLDelight.nativeDriver)
+    implementation("com.squareup.sqldelight:sqlite-driver:1.4.4")
+
+    //Testing
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }
