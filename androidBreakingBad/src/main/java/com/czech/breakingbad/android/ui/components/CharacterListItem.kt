@@ -1,4 +1,4 @@
-package com.czech.breakingbad.android.presentation.components
+package com.czech.breakingbad.android.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
-import androidx.constraintlayout.compose.Dimension
 import com.czech.breakingbad.android.R
 import com.czech.breakingbad.datasource.network.models.Characters
 

@@ -1,19 +1,11 @@
-package com.czech.breakingbad.android.presentation.characters
+package com.czech.breakingbad.android.ui.characters
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.czech.breakingbad.android.presentation.components.CharactersList
-import com.czech.breakingbad.android.presentation.components.SearchBar
-import com.czech.breakingbad.android.presentation.theme.AppTheme
+import com.czech.breakingbad.android.ui.components.CharactersList
+import com.czech.breakingbad.android.ui.components.SearchBar
+import com.czech.breakingbad.android.ui.theme.AppTheme
 import com.czech.breakingbad.presentation.characters.events.CharactersListEvent
 import com.czech.breakingbad.presentation.characters.states.CharactersListState
 

@@ -1,4 +1,4 @@
-package com.czech.breakingbad.android.presentation.navigation
+package com.czech.breakingbad.android.ui.navigation
 
 sealed class Screens(
     val route: String,

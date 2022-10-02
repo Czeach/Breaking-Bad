@@ -1,13 +1,15 @@
-package com.czech.breakingbad.android.presentation.characters
+package com.czech.breakingbad.android.ui.characters
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.czech.breakingbad.interactors.characters.GetCharacterDetail
-import com.czech.breakingbad.presentation.characters.events.CharacterDetailEvent
-import com.czech.breakingbad.presentation.characters.states.CharacterDetailState
+import com.czech.breakingbad.datasource.network.models.Characters
+import com.czech.breakingbad.interactors.characters.GetCharactersList
+import com.czech.breakingbad.interactors.characters.SearchCharacter
+import com.czech.breakingbad.presentation.characters.events.CharactersListEvent
+import com.czech.breakingbad.presentation.characters.states.CharactersListState
 import com.czech.breakingbad.util.Constants
 import com.czech.breakingbad.util.MessageInfo
 import com.czech.breakingbad.util.MessageInfoQueueUtil
@@ -18,29 +20,35 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 @HiltViewModel
-class CharacterDetailViewModel
+class CharactersListViewModel
 @Inject
 constructor(
-    savedStateHandle: SavedStateHandle,
-    private val getCharacterDetail: GetCharacterDetail
+    private val savedStateHandle: SavedStateHandle,
+    private val getCharactersList: GetCharactersList,
+    private val searchCharacter: SearchCharacter
 ): ViewModel() {
 
-    val state: MutableState<CharacterDetailState> = mutableStateOf(CharacterDetailState())
+    val state: MutableState<CharactersListState> = mutableStateOf(CharactersListState())
 
     init {
-        savedStateHandle.get<Int>("char_id")?.let { char_id ->
-            triggerEvent(CharacterDetailEvent.GetCharacter(char_Id = char_id))
-        }
+        triggerEvent(CharactersListEvent.LoadCharacters)
     }
 
-    fun triggerEvent(event: CharacterDetailEvent) {
+    fun triggerEvent(event: CharactersListEvent) {
         when (event) {
-            is CharacterDetailEvent.GetCharacter -> {
-                getCharacter(char_id = event.char_Id)
+            is CharactersListEvent.LoadCharacters -> {
+                loadCharacters()
             }
-            is CharacterDetailEvent.OnRemoveLastMessageFromQueue -> {
+            is CharactersListEvent.SearchCharacter -> {
+                searchCharacter()
+            }
+            is CharactersListEvent.OnUpdateQuery -> {
+                state.value.copy(query = event.query, characters = listOf())
+            }
+            is CharactersListEvent.OnRemoveLastMessageFromQueue -> {
                 removeLastMessage()
             }
             else -> {
@@ -54,14 +62,32 @@ constructor(
         }
     }
 
-    private fun getCharacter(char_id: Int) {
-        getCharacterDetail.execute(char_id)
+    private fun searchCharacter() {
+        state.value = state.value.copy(characters = listOf())
+
+        searchCharacter.execute(
+            query = state.value.query
+        ).onEach { dataState ->
+            state.value = state.value.copy(isLoading = dataState.isLoading)
+
+            dataState.data?.let { character ->
+                appendCharacters(character)
+            }
+
+            dataState.message?.let { message ->
+                appendToMessageQueue(message)
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    private fun loadCharacters() {
+        getCharactersList.execute()
             .onEach { dataState ->
-                state.value = state.value.copy(isLoading = dataState.isLoading)
+                state.value = state.value.copy(dataState.isLoading)
 
                 dataState.data.let { data ->
                     if (data != null) {
-                        state.value = state.value.copy(character = data)
+                        appendCharacters(characters = data)
                     }
                 }
 
@@ -71,6 +97,12 @@ constructor(
                     }
                 }
             }.launchIn(viewModelScope)
+    }
+
+    private fun appendCharacters(characters: List<Characters>) {
+        val charactersList = ArrayList(state.value.characters)
+        charactersList.addAll(characters)
+        state.value = state.value.copy(characters = charactersList)
     }
 
     private fun appendToMessageQueue(messageInfo: MessageInfo.Builder) {

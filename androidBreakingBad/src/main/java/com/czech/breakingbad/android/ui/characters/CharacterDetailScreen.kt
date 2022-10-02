@@ -1,15 +1,13 @@
-package com.czech.breakingbad.android.presentation.characters
+package com.czech.breakingbad.android.ui.characters
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.czech.breakingbad.android.presentation.components.CharacterDetail
-import com.czech.breakingbad.android.presentation.theme.AppTheme
-import com.czech.breakingbad.datasource.network.models.Characters
+import com.czech.breakingbad.android.ui.components.CharacterDetail
+import com.czech.breakingbad.android.ui.theme.AppTheme
 import com.czech.breakingbad.presentation.characters.events.CharacterDetailEvent
 import com.czech.breakingbad.presentation.characters.states.CharacterDetailState
 

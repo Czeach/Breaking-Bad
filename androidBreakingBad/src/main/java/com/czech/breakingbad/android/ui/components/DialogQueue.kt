@@ -1,4 +1,4 @@
-package com.czech.breakingbad.android.presentation.components
+package com.czech.breakingbad.android.ui.components
 
 import androidx.compose.runtime.Composable
 import com.czech.breakingbad.util.MessageInfo

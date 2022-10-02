@@ -1,4 +1,4 @@
-package com.czech.breakingbad.android.presentation.components
+package com.czech.breakingbad.android.ui.components
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator

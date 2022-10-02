@@ -1,13 +1,12 @@
-package com.czech.breakingbad.android.presentation.theme
+package com.czech.breakingbad.android.ui.theme
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.czech.breakingbad.android.presentation.components.CircularProgressBar
-import com.czech.breakingbad.android.presentation.components.DialogQueue
+import com.czech.breakingbad.android.ui.components.CircularProgressBar
+import com.czech.breakingbad.android.ui.components.DialogQueue
 import com.czech.breakingbad.util.MessageInfo
 import com.czech.breakingbad.util.Queue
 

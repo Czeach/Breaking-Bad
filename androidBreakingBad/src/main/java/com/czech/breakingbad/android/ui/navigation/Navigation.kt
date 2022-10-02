@@ -1,18 +1,15 @@
-package com.czech.breakingbad.android.presentation.navigation
+package com.czech.breakingbad.android.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
-import com.czech.breakingbad.android.presentation.characters.CharacterDetailScreen
-import com.czech.breakingbad.android.presentation.characters.CharacterDetailViewModel
-import com.czech.breakingbad.android.presentation.characters.CharacterListScreen
-import com.czech.breakingbad.android.presentation.characters.CharactersListViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.czech.breakingbad.android.ui.characters.CharacterDetailScreen
+import com.czech.breakingbad.android.ui.characters.CharacterDetailViewModel
+import com.czech.breakingbad.android.ui.characters.CharacterListScreen
+import com.czech.breakingbad.android.ui.characters.CharactersListViewModel
 
 @ExperimentalComposeUiApi
 @Composable

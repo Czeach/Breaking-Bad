@@ -1,4 +1,4 @@
-package com.czech.breakingbad.android.presentation.components
+package com.czech.breakingbad.android.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -9,9 +9,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.czech.breakingbad.util.Constants
 import com.czech.breakingbad.util.Constants.CHARACTER_IMAGE_HEIGHT_LARGE
 import com.czech.breakingbad.util.Constants.CHARACTER_IMAGE_HEIGHT_SMALL
 import com.czech.breakingbad.util.Constants.CHARACTER_IMAGE_WIDTH_LARGE
