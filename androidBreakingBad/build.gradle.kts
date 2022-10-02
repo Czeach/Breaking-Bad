@@ -82,8 +82,6 @@ dependencies {
     implementation(Accompanist.coil)
 
     implementation(SQLDelight.runtime)
-    implementation(SQLDelight.androidDriver)
-    implementation(SQLDelight.nativeDriver)
     implementation("com.squareup.sqldelight:sqlite-driver:1.4.4")
 
     //Testing
