@@ -60,7 +60,7 @@ constructor(
         }
     }
 
-    private fun searchCharacter() {
+    fun searchCharacter() {
         state.value = state.value.copy(characters = listOf())
 
         searchCharacter.execute(

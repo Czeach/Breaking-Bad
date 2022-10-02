@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.invoke
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -63,6 +64,32 @@ class CharactersListViewModelTest {
         category = "",
         betterCallSaulAppearance = listOf(6, 9)
     )
+
+    @Test
+    fun searchChar() = testCoroutineDispatcher.runBlockingTest {
+
+        charListViewModel = CharactersListViewModel(charListRepository,searchCharRepository)
+
+        val responseToData = DataState.data(data = listOf(response))
+
+        val channel = Channel<DataState<List<Characters>>>()
+
+        val flow = channel.consumeAsFlow()
+
+        val query = ""
+
+        Mockito.`when`(searchCharRepository.execute(query)).thenReturn(flow)
+
+        val job = launch {
+            channel.send(responseToData)
+        }
+
+        charListViewModel.searchCharacter()
+
+        Assert.assertEquals(true, charListViewModel.state.value.characters.firstOrNull()?.charId == 1)
+        Assert.assertEquals(true, !charListViewModel.state.value.isLoading)
+        job.cancel()
+    }
 
     @Test
     fun getCharListTest() = testCoroutineDispatcher.runBlockingTest {
