@@ -1,11 +1,11 @@
-package database
+package tests.database
 
 import com.czech.breakingbad.datasource.cache.BreakingBadDBQueries
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import utils.testDatabase
+import tests.utils.testDatabase
 
 class BreakingBadDatabaseTest {
 

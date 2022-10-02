@@ -2,7 +2,6 @@ package com.czech.breakingbad.android.ui.characters
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.czech.breakingbad.datasource.network.models.Characters
@@ -26,7 +25,6 @@ import kotlin.collections.ArrayList
 class CharactersListViewModel
 @Inject
 constructor(
-    private val savedStateHandle: SavedStateHandle,
     private val getCharactersList: GetCharactersList,
     private val searchCharacter: SearchCharacter
 ): ViewModel() {
@@ -80,7 +78,7 @@ constructor(
         }.launchIn(viewModelScope)
     }
 
-    private fun loadCharacters() {
+    fun loadCharacters() {
         getCharactersList.execute()
             .onEach { dataState ->
                 state.value = state.value.copy(dataState.isLoading)

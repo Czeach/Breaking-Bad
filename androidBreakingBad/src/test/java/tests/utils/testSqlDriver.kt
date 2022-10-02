@@ -1,4 +1,4 @@
-package utils
+package tests.utils
 
 import com.czech.breakingbad.datasource.cache.BreakingBadDatabase
 import com.squareup.sqldelight.db.SqlDriver
