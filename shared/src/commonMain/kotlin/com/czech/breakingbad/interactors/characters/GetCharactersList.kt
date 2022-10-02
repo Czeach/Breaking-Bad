@@ -7,9 +7,11 @@ import com.czech.breakingbad.util.Constants
 import com.czech.breakingbad.util.DataState
 import com.czech.breakingbad.util.MessageInfo
 import com.czech.breakingbad.util.UIComponentType
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class GetCharactersList(
     private val apiService: ApiService,

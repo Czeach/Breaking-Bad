@@ -67,6 +67,19 @@ dependencies {
     kapt(Hilt.hiltCompiler)
     implementation(Hilt.hiltNavigation)
 
+    //Coroutines
+    implementation(Coroutines.coroutinesCore)
+    implementation(Coroutines.coroutinesAndroid)
+    implementation(Coroutines.coroutinesAdapter)
+
+    //Testing
+    testImplementation(Testing.mockitoCore)
+    testImplementation(Testing.mockitoInline)
+    testImplementation(Testing.coreTesting)
+    testImplementation(Testing.coroutinesTest)
+    testImplementation(Testing.jUnit_)
+    androidTestImplementation(Testing.jUnitExt)
+
     // Ktor
     implementation(Ktor.android)
 
