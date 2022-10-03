@@ -1,17 +1,14 @@
 package tests.viewModels
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.czech.breakingbad.android.ui.characters.CharactersListViewModel
 import com.czech.breakingbad.datasource.network.models.Characters
 import com.czech.breakingbad.interactors.characters.GetCharactersList
 import com.czech.breakingbad.interactors.characters.SearchCharacter
-import com.czech.breakingbad.presentation.characters.states.CharactersListState
 import com.czech.breakingbad.util.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
-import kotlinx.coroutines.invoke
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -23,7 +20,6 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
-import tests.utils.TestRule
 
 @RunWith(MockitoJUnitRunner::class)
 @OptIn(ExperimentalCoroutinesApi::class)
