@@ -1,15 +1,19 @@
 # Breaking-Bad
-This is a simple Kotlin Multiplatform Mobile project that retrieves and stores all the characters of the Breaking Bad series from the breaking bad API.
-The data is cached int an SQLDelight database and displayed to the user from the database. The user can also search for characters by name.
+This is a simple Kotlin Multiplatform Mobile project that retrieves and stores all the characters of the Breaking Bad series from the breaking bad API and displays the results in a list.
+The data is cached in an SQLDelight database and displayed to the user from the database. The user can also search for characters by name. This application is built entirely with Jetpack Compose.
 
 ## Libraries used
-* [Ktor client:](https://ktor.io/) a multiplatform asynchronous HTTP client that allows you make network requests and handle responses, etc
-* [Hilt:](https://developer.android.com/training/dependency-injection/hilt-android) a dependency injection library for Android that provides a standard way to use DI in your application by providing containers for every Android class in your project and managing their lifecycles automatically.
-* [SQLDelight:](https://github.com/cashapp/sqldelight) SQLDelight is a cross-platform database library that generates typesafe kotlin APIs from SQL statements.
-* [Kotlin Flow:](https://developer.android.com/kotlin/flow)  a conceptually a stream of data that can be computed asynchronously.
-* [Jetpack compose:](https://developer.android.com/jetpack/compose?gclsrc=aw.ds&gclid=CjwKCAiA8bqOBhANEiwA-sIlN89YfvkT4TPJ3hbJCjJZswubf_cEPkYvEtYmbghr8Bl1rjWpX1qMNhoCUWkQAvD_BwE) Android’s modern toolkit for building native UI. It simplifies and accelerates UI development on Android.
-* [Accompanist coil:](https://github.com/google/accompanist) Accompanist is a group of libraries that aim to supplement Jetpack Compose with features that are commonly required by developers but not yet available.
-
+* MVVM and clean architecture
+* Jetpack Compose for UI
+* Multi-platform support from KMM
+* Hilt for dependency injection
+* Kotlin ktor for network call
+* SQLDelight database for offline caching
+* Compose Navigation for smooth navigation
+* Kotlin Flow to handle network calls
+* JUnit and Mockito for unit testing
+* Accompanist coil for loading images
+* Explicit error handling system
 
 ```
 
